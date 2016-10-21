@@ -5,5 +5,5 @@ import com.arun.pg.model.User;
 public interface UserDAO {
 	
 	public void insertUser(User user);
-	public User getUserByEmail(String email);
+	public User getUserDetails(String email);
 }

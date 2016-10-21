@@ -16,8 +16,14 @@ public class SignUpController {
 
 	
 	@RequestMapping("/login")
-	public String login(@RequestParam(name="success", required=false) boolean success){
+	public String login(){
 				
 		return "Login";
+	}
+	
+	@RequestMapping("/all")
+	public String getAllProductData(){
+		
+		return "ViewAll";
 	}
 }

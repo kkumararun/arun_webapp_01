@@ -1,0 +1,6 @@
+
+org.springframework.security.authentication.InternalAuthenticationServiceException: PreparedStatementCallback; bad SQL grammar [select useremail,userpassword, enabled from user where useremail=?]; nested exception is org.h2.jdbc.JdbcSQLException: Column "ENABLED" not found; SQL statement:
+select useremail,userpassword, enabled from user where useremail=? [42122-192]
+
+mandate to create enabled in database 
+

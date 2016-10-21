@@ -19,8 +19,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public User getUserByEmail(String email) {			
-		User user = session.getCurrentSession().get(User.class, new String(email));	
+	public User getUserDetails(String userid) {			
+		User user = session.getCurrentSession().get(User.class, new String(userid));	
 		return user;
 		
 	}
