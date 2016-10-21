@@ -1,0 +1,9 @@
+Error
+service() for servlet [spring-dispatcher] in context with path [/arun_webapp_01] threw exception [Request processing failed; nested exception is org.hibernate.HibernateException: Could not obtain transaction-synchronized Session for current thread] with root cause
+
+Solution
+@Transactional annotaion must be from spring.framwork if it's from javax package so you'll get the error
+
+Link
+
+http://stackoverflow.com/questions/26203446/spring-hibernate-could-not-obtain-transaction-synchronized-session-for-current 
