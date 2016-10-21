@@ -43,9 +43,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
 	<tx:annotation-driven />
-	<!-- dto related beans -->
+	<!-- Define the bean id's -->
 	<bean id="productDAO" class="com.arun.pg.dao.ProductDAOImpl" />
-
+	<bean id="userDAO" class="com.arun.pg.dao.UserDAOImpl" />
 
 </beans>
 

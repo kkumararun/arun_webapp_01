@@ -123,8 +123,42 @@
     <artifactId>jstl</artifactId>
     <version>1.2</version>
 </dependency>
-        
-    
+  
+  
+  
+  <!-- Spring Security Dependencies -->
+  
+  <!-- Spring Security Core Dependency-->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-core</artifactId>
+    <version>4.1.3.RELEASE</version>
+</dependency>
+  
+  <!-- Spring Security Web Dependency-->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>4.1.3.RELEASE</version>
+</dependency>
+  
+  <!-- Spring Security config Dependency-->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>4.1.3.RELEASE</version>
+</dependency>
+
+<!-- Spring Security taglibs Dependency-->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-taglibs</artifactId>
+    <version>4.1.3.RELEASE</version>
+</dependency>
+
+  
+  
+  
   </dependencies>
   <build>
     <finalName>arun_webapp_01</finalName>
