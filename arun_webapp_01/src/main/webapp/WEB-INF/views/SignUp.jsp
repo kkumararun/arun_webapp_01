@@ -23,22 +23,27 @@
                   <div class="form-group">
                     <form:input path="name" class="form-control"
 							placeholder="User Name" required="required" />
+							<form:errors path="name" style="color:red;" />
                   </div>
                   <div class="form-group">
                      <form:input path="email" type="email" class="form-control"
 							placeholder="User email" required="required" />
+							<form:errors path="email" style="color:red;" />
                   </div>
                         <div class="form-group">
                     <form:input path="password" type="password" class="form-control"
 							placeholder="User Password" required="required" />
+							<form:errors path="password" style="color:red;" />
                   </div>
                   
                         <div class="form-group">
                     <form:hidden path="enabled" value="true"/>
+                    <form:errors path="enabled" style="color:red;" />
                   </div>
 
       <div class="form-group">
                     <form:hidden path="role" value="ROLE_USER"/>
+                    <form:errors path="role" style="color:red;" />
                   </div>
                   
                   

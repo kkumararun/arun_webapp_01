@@ -2,12 +2,14 @@ package com.arun.pg.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +33,12 @@ public class SignUpController {
 
 	// register the user
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertUserData(@ModelAttribute("user") User user) {
+	public String insertUserData(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "SignUp";
+		}
+		
 		userDAO.insertUser(user);
 		return "redirect:/login";
 	}
@@ -47,6 +54,15 @@ public class SignUpController {
 		return "redirect:/login?logout";
 	}
 
+
+	@RequestMapping("/403")
+	public String accessDen() {
+
+		return "403";
+	}
+
+	
+	
 	// signup form and sending the blank user object to spring form
 	@RequestMapping("/signup")
 	public ModelAndView gotoSignUp() {

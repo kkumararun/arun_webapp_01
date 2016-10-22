@@ -68,7 +68,7 @@
 							<input type="submit" class="btn btn-success btn-block"
 								value="Update" />
 						</c:if>
-						
+
 						<c:if test="${empty product.productName}">
 							<input type="submit" class="btn btn-success btn-block"
 								value="Insert Product" />

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User  {
@@ -17,6 +18,7 @@ public class User  {
 	@Column(name="name")
 	private String name;
 	
+	@Size(min = 6, max = 15)
 	@Column(name="email")	
 	private String email;
 	
@@ -25,14 +27,15 @@ public class User  {
 	
 	
 	@Column(name = "enabled")
-	private int enabled;
+	private Boolean enabled;
 	@Column(name = "role")
 	private String role;
 	
-	public int getEnabled() {
+	
+	public Boolean getEnabled() {
 		return enabled;
 	}
-	public void setEnabled(int enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 	public String getRole() {

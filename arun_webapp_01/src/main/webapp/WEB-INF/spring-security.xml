@@ -6,15 +6,15 @@
 	">
 
 
-
+	<!-- User Access Permision -->
 	<http auto-config="true">
+	<access-denied-handler error-page="/403" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/**" access="permitAll" />		
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"
 			username-parameter="email" password-parameter="password"
 			authentication-failure-url="/login" 
-			
 			/>
 		<logout logout-success-url="/" />
 		<csrf disabled="true" />
@@ -23,10 +23,7 @@
 		<csrf disabled="true" />
 	</http>
 
-	<!-- <user-service> <user name="user" password="password" authorities="ROLE_USER" 
-		/> </user-service> -->
-
-	<!-- Authentication using database connection -->
+	<!-- Role Based Authentication using jdbc -->
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"

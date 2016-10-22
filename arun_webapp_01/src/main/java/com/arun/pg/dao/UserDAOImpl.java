@@ -7,24 +7,23 @@ import org.springframework.transaction.annotation.Transactional;
 import com.arun.pg.model.User;
 
 @Transactional
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SessionFactory session;
-	
+
 	@Override
 	public void insertUser(User user) {
 		session.getCurrentSession().persist(user);
-		
+
 	}
 
 	@Override
-	public User getUserDetails(String userid) {			
+	public User getUserDetails(String userid) {
 
-		User user = session.getCurrentSession().get(User.class, new String(userid));	
+		User user = session.getCurrentSession().get(User.class, new String(userid));
 		return user;
-		
+
 	}
-	
 
 }
