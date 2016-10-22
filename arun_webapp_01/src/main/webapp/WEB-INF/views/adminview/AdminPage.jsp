@@ -44,12 +44,12 @@
 					<%-- 	<td><form:label path="productCategory">Product Category</form:label></td> --%>
 					<div class="form-group">
 						<form:input path="productQuantity" class="form-control"
-							placeholder="Product Quantity" required="required" />
+							placeholder="Product Quantity" value="" required="required" />
 					</div>
 
 					<div class="form-group">
 						<form:input path="productPrice" class="form-control"
-							placeholder="Product Price" required="required" />
+							placeholder="Product Price" value="" required="required" />
 					</div>
 
 
