@@ -9,7 +9,8 @@
 <script src="<c:url value="${js}/angular.js"/>"></script>
 <script src="<c:url value="${js}/jquery.min.js"/>"></script>
 <script src="<c:url value="${js}/bootstrap.js"/>"></script>
- 
+ <script src="<c:url value="${js}/product.js"/>"></script>
 <link rel="stylesheet"	href="<c:url value="${css}/viewallimages.css"/>">
 <link rel="stylesheet"	href="<c:url value="${css}/bootstrap.css"/>">
 <link rel="stylesheet"	href="<c:url value="${css}/signup.css"/>">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

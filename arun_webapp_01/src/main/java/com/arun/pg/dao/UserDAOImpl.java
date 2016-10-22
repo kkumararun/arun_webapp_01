@@ -20,6 +20,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public User getUserDetails(String userid) {			
+
 		User user = session.getCurrentSession().get(User.class, new String(userid));	
 		return user;
 		

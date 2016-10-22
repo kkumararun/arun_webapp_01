@@ -8,9 +8,9 @@
 
 
 	<http auto-config="true">
-		<intercept-url pattern="/" access="permitAll" />
-		<intercept-url pattern="/all" access="permitAll" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/**" access="permitAll" />		
 		<form-login login-page="/login" default-target-url="/"
 			username-parameter="email" password-parameter="password"
 			authentication-failure-url="/login" 

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<jsp:include page="Linking.jsp" />
 
+<%@include file="Linking.jsp"%>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
    
@@ -26,6 +26,7 @@
    
    <ul class="nav navbar-nav navbar-right">
    <li><a href="<c:url value="/contact"/>">Reach Us</a></li>
+   <li><a href="<c:url value="/logout"/>">LogOut</a></li>
    <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
    <li class="dropdown">
                    <a href="" class="dropdown-toggle" data-toggle="dropdown">Login<strong class="caret"></strong></a>
@@ -43,6 +44,9 @@
                   </ul>
                 </li>
     </ul>
+    
+    
+    
    
     </div>
     

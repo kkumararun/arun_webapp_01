@@ -1,9 +1,9 @@
 
 <body>
-<jsp:include page="Header.jsp"/>
+<%@include file="Header.jsp" %>
 
 <%@include file="Carousle.jsp" %>
 
-<%@include file="LandingProduct.jsp" %>
-<jsp:include page="Footer.jsp"/>
+<%@include file="FrontBrand.jsp" %>
+<%@include file="Footer.jsp" %>
 </body>

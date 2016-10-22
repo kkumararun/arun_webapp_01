@@ -5,7 +5,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 
 
-<jsp:include page="../Header.jsp" />
+<%@include file="../Header.jsp"%>
 
 
 <div class="container-fluid">
@@ -48,7 +48,6 @@
 					</div>
 
 					<div class="form-group">
-						<%-- <td><form:label path="productBrand">Product Brand</form:label></td> --%>
 						<form:input path="productPrice" class="form-control"
 							placeholder="Product Price" required="required" />
 					</div>
@@ -64,16 +63,17 @@
 							placeholder="Select File" required="required" />
 					</div>
 
-
-					<c:if test="${!empty prdouct.productName}">
-						<input type="submit" class="btn btn-success btn-block"
-							value="Update" />
-					</c:if>
-					<c:if test="${empty product.productName}">
-						<input type="submit" class="btn btn-success btn-block"
-							value="Insert Product" />
-					</c:if>
-
+					<div class="form-group">
+						<c:if test="${!empty prdouct.productName}">
+							<input type="submit" class="btn btn-success btn-block"
+								value="Update" />
+						</c:if>
+						
+						<c:if test="${empty product.productName}">
+							<input type="submit" class="btn btn-success btn-block"
+								value="Insert Product" />
+						</c:if>
+					</div>
 
 				</form:form>
 
@@ -141,15 +141,6 @@
 	</div>
 </div>
 
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="hovereffect">
-        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-        <div class="overlay">
-           <h2>Hover effect 3</h2>
-           <a class="info" href="#">link here</a>
-        </div>
-    </div>
-</div>
 
+<%@include file="../Footer.jsp"%>
 
-<jsp:include page="../Footer.jsp" />
