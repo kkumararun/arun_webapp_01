@@ -36,12 +36,14 @@ public class SignUpController {
 	public String insertUserData(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		
 		if (result.hasErrors()) {
+			
 			return "SignUp";
 		}
 		
 		userDAO.insertUser(user);
 		return "redirect:/login";
 	}
+
 
 	// Logout User code
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

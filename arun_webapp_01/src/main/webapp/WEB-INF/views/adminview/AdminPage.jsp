@@ -40,6 +40,16 @@
 						<form:input path="productBrand" class="form-control"
 							placeholder="Product Brand" required="required" />
 					</div>
+					
+					<div class="form-group">
+						<form:label path="">Product Category</form:label>
+						<form:select path="category" class="form-control">
+							<c:forEach items="${categories}" var="categories">
+								<form:option value="${categories.categoryName}">${categories.categoryName}</form:option>
+							</c:forEach>
+						</form:select>
+					</div>
+
 
 					<%-- 	<td><form:label path="productCategory">Product Category</form:label></td> --%>
 					<div class="form-group">
@@ -63,16 +73,16 @@
 							placeholder="Select File" required="required" />
 					</div>
 
-					<div class="form-group">
-						<c:if test="${!empty prdouct.productName}">
+<%-- 					<div class="form-group">
+						<c:if test="${prdouct.productName!=null}">
 							<input type="submit" class="btn btn-success btn-block"
 								value="Update" />
 						</c:if>
-
-						<c:if test="${empty product.productName}">
+ --%>
+<%-- 						<c:if test="${empty product.productName}"> --%>
 							<input type="submit" class="btn btn-success btn-block"
 								value="Insert Product" />
-						</c:if>
+						<%-- </c:if> --%>
 					</div>
 
 				</form:form>
@@ -101,6 +111,7 @@
 							<th>Product Brand</th>
 							<th>Product Category</th>
 							<th>Product Price</th>
+								<th>Product Quantity</th>
 							<th>Edit Product</th>
 							<th>Delete Product</th>
 						</tr>
@@ -117,8 +128,9 @@
 								<td class="active">${data.productId}</td>
 								<td align="left">${data.productName}</td>
 								<td>${data.productBrand}</td>
-								<td>${data.productQuantity}</td>
+								<td>${data.category}</td>
 								<td>${data.productPrice}</td>
+								<td>${data.productQuantity}</td>
 								<td>
 									<!-- button to edit product  --> <a
 									href="<c:url value='/admin/edit/${data.productId}' />"><span

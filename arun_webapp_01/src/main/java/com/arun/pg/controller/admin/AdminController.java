@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.arun.pg.dao.CategoryDAO;
 import com.arun.pg.dao.ProductDAO;
 import com.arun.pg.model.Product;
 
@@ -26,13 +27,15 @@ public class AdminController {
 	
 	@Autowired
 	ProductDAO productDao;
+	@Autowired
+	CategoryDAO categoryDao;
 	
 	@RequestMapping("/all")
 	public ModelAndView getAllProducts(){
 		ModelAndView modelAndView=new ModelAndView("adminview/AdminPage");
 		modelAndView.addObject("product",new Product());
 		modelAndView.addObject("productData",productDao.getAllProduct());
-		
+		modelAndView.addObject("categories",categoryDao.getAll());
 		return modelAndView;
 		
 	}
@@ -44,14 +47,10 @@ public class AdminController {
 
 		if (product.getProductId() == 0) {
 			productDao.insertProduct(product);
-			
-			
-			MultipartFile file = product.getFile();
-			
-			String originalfile = file.getOriginalFilename();
-			
-			String filepath = request.getSession().getServletContext().getRealPath("/resources/images/productimages/");
-	
+						
+			MultipartFile file = product.getFile();		
+			String originalfile = file.getOriginalFilename();			
+			String filepath = request.getSession().getServletContext().getRealPath("/resources/images/productimages/");	
 			System.out.println("Path of file "+filepath);
 			String filename = filepath + "\\" + product.getProductId() + ".jpg";
 			System.out.println("File Path File "+filepath);
@@ -73,6 +72,7 @@ public class AdminController {
 			
 		} else {
 			productDao.updateProduct(product);
+			
 		}
 
 		return "redirect:/admin/all";
@@ -90,7 +90,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/edit/{id}")
 	public String editProduct(@PathVariable("id") int id, Model model) {
-
+		model.addAttribute("categories",categoryDao.getAll());
 		model.addAttribute("product", productDao.getProductById(id));
 		model.addAttribute("productData", productDao.getAllProduct());
 		return "adminview/AdminPage";

@@ -1,80 +1,76 @@
-<style>
 
-.header {
-    color: #36A0FF;
-    font-size: 27px;
-    padding: 10px;
-}
 
-.bigicon {
-    font-size: 35px;
-    color: #36A0FF;
-}
-</style>
+<%@include file="Header.jsp"%>
 
-<%@include file="Linking.jsp" %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form:form class="form-horizontal" role="form">
+        <fieldset>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="well well-sm">
-				<form class="form-horizontal" method="post">
-					<fieldset>
-						<legend class="text-center header">Contact us</legend>
+          <!-- Form Name -->
+          <legend>Address Details</legend>
 
-						<div class="form-group">
-							<span class="col-md-1 col-md-offset-2 text-center"><i
-								class="fa fa-user bigicon"></i></span>
-							<div class="col-md-8">
-								<input id="fname" name="name" type="text"
-									placeholder="First Name" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<span class="col-md-1 col-md-offset-2 text-center"><i
-								class="fa fa-user bigicon"></i></span>
-							<div class="col-md-8">
-								<input id="lname" name="name" type="text"
-									placeholder="Last Name" class="form-control">
-							</div>
-						</div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Address Line 1" class="form-control">
+            </div>
+          </div>
 
-						<div class="form-group">
-							<span class="col-md-1 col-md-offset-2 text-center"><i
-								class="fa fa-envelope-o bigicon"></i></span>
-							<div class="col-md-8">
-								<input id="email" name="email" type="text"
-									placeholder="Email Address" class="form-control">
-							</div>
-						</div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Address Line 2" class="form-control">
+            </div>
+          </div>
 
-						<div class="form-group">
-							<span class="col-md-1 col-md-offset-2 text-center"><i
-								class="fa fa-phone-square bigicon"></i></span>
-							<div class="col-md-8">
-								<input id="phone" name="phone" type="text" placeholder="Phone"
-									class="form-control">
-							</div>
-						</div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">City</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="City" class="form-control">
+            </div>
+          </div>
 
-						<div class="form-group">
-							<span class="col-md-1 col-md-offset-2 text-center"><i
-								class="fa fa-pencil-square-o bigicon"></i></span>
-							<div class="col-md-8">
-								<textarea class="form-control" id="message" name="message"
-									placeholder="Enter your massage for us here. We will get back to you within 2 business days."
-									rows="7"></textarea>
-							</div>
-						</div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">State</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="State" class="form-control">
+            </div>
 
-						<div class="form-group">
-							<div class="col-md-12 text-center">
-								<button type="submit" name = "_eventId_submit"class="btn btn-primary btn-lg">Submit</button>
-							</div>
-						</div>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+            <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Post Code" class="form-control">
+            </div>
+          </div>
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Country</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Country" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" name = "_eventId_submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form:form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+								
+
+<%@include file="Footer.jsp"%>

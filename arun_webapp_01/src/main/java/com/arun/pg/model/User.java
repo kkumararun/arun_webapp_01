@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+
 @Entity
 public class User  {
 
@@ -15,13 +19,16 @@ public class User  {
 	@Column(name="uid")
 	private int uid;
 	
+	@NotEmpty(message="Name Can't be blank")
 	@Column(name="name")
 	private String name;
 	
-	@Size(min = 6, max = 15)
+	@Email
+	@NotEmpty(message="email can't be blank")
 	@Column(name="email")	
 	private String email;
 	
+	@NotEmpty(message="Password Can't be empty")
 	@Column(name="password")
 	private String password;
 	

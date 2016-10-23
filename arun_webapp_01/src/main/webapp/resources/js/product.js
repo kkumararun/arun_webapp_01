@@ -1,15 +1,18 @@
+/*
+ Angular Rest Controller
+ It'll get the data from @ResponseBody Controller (component)
+
+ */
+
 var mainApp = angular.module("ngAppProduct", []);
-         
-         mainApp.controller('allProduct', function($scope,$http) {
-        	 $http.get('/arun_webapp_01/products/all')
-        	 .then(function(response) {
-				$scope.allProductData=response.data;
-			});
-        	 
-        	 
-            $scope.myDataSort = function(x) {
-                $scope.mydata = x;
-              }            
-            
-                  
-         });
+
+mainApp.controller('allProduct', function($scope, $http) {
+	$http.get('/arun_webapp_01/products/all').then(function(response) {
+		$scope.allProductData = response.data;
+	});
+
+	$scope.myDataSort = function(x) {
+		$scope.mydata = x;
+	}
+
+});

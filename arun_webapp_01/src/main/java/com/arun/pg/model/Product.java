@@ -20,61 +20,86 @@ public class Product {
 
 	@NotNull
 	private String productName;
-
-	private int productQuantity;
-	private String productBrand;
-	private int productPrice;
-
-	@Transient
-	MultipartFile file;
-
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
-
-	public int getProductQuantity() {
-		return productQuantity;
-	}
-
-	public void setProductQuantity(int productQuantity) {
-		this.productQuantity = productQuantity;
-	}
-
+	private String category;
 	public int getProductId() {
 		return productId;
 	}
+
 
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
+
 	public String getProductName() {
 		return productName;
 	}
+
 
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+	public int getProductQuantity() {
+		return productQuantity;
+	}
+
+
+	public void setProductQuantity(int productQuantity) {
+		this.productQuantity = productQuantity;
+	}
+
+
 	public String getProductBrand() {
 		return productBrand;
 	}
+
 
 	public void setProductBrand(String productBrand) {
 		this.productBrand = productBrand;
 	}
 
-	public int getproductPrice() {
+
+	public int getProductPrice() {
 		return productPrice;
 	}
 
-	public void setPrice(int productPrice) {
+
+	public void setProductPrice(int productPrice) {
 		this.productPrice = productPrice;
 	}
+
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+
+	private int productQuantity;
+	private String productBrand;
+	private int productPrice;
+	
+	
+
+	@Transient
+	MultipartFile file;
+
 
 	@Override
 	public String toString() {

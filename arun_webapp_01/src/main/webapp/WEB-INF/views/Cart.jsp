@@ -1,6 +1,5 @@
 
-<%@include file="Linking.jsp" %>
-
+<%@include file="Header.jsp"%>
 <form:form>
 
 <div class="container">
@@ -29,7 +28,7 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+                        <input type="text" class="form-control" id="exampleInputEmail1" value="3">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
@@ -49,7 +48,7 @@
                             </div>
                         </div></td>
                         <td class="col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="2">
+                        <input type="text" class="form-control" id="exampleInputEmail1" value="2">
                         </td>
                         <td class="col-md-1 text-center"><strong>$4.99</strong></td>
                         <td class="col-md-1 text-center"><strong>$9.98</strong></td>
@@ -99,3 +98,4 @@
     </div>
 </div>
          </form:form>
+         <%@include file="Footer.jsp"%>

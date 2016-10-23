@@ -1,63 +1,155 @@
 <%@include file="Linking.jsp" %>
 
+<%@include file="Header.jsp"%>
 <style>
-.credit-card-div  span { padding-top:10px; }
-.credit-card-div img { padding-top:30px; }
-.credit-card-div .small-font { font-size:9px; }
-.credit-card-div .pad-adjust { padding-top:10px; }
+/* Padding - just for asthetics on Bootsnipp.com */
+body { margin-top:0px; }
+
+/* CSS for Credit Card Payment form */
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+.credit-card-box .display-tr {
+    display: table-row;
+}
+.credit-card-box .display-td {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+    min-width: 180px;
+}
 </style>
 
 
-<form:form action="#" class="credit-card-div">
-<div class="panel panel-default" >
- <div class="panel-heading">
-     
-      <div class="row ">
-              <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Enter Card Number" />
-              </div>
-          </div>
-     <div class="row ">
-              <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font" > Expiry Month</span>
-                  <input type="text" class="form-control" placeholder="MM" />
-              </div>
-         <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font" >  Expiry Year</span>
-                  <input type="text" class="form-control" placeholder="YY" />
-              </div>
-        <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font" >  CCV</span>
-                  <input type="text" class="form-control" placeholder="CCV" />
-              </div>
-         <div class="col-md-3 col-sm-3 col-xs-3">
-<img src="assets/img/1.png" class="img-rounded" />
-         </div>
-          </div>
-     <div class="row ">
-              <div class="col-md-12 pad-adjust">
 
-                  <input type="text" class="form-control" placeholder="Name On The Card" />
-              </div>
-          </div>
-     <div class="row">
-<div class="col-md-12 pad-adjust">
-    <div class="checkbox">
-    <label>
-      <input type="checkbox" checked class="text-muted"> Save details for fast payments <a href="#"> learn how ?</a>
-    </label>
-  </div>
+<div class="container">
+    <div class="row">
+    <div class="col-sm-4"></div>
+        <!-- You can make it whatever width you want. I'm making it full width
+             on <= small devices and 4/12 page width on >= medium devices -->
+        <div class="col-xs-12 col-md-4">
+        
+        
+            <!-- CREDIT CARD FORM STARTS HERE -->
+            <form:form>
+            
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading display-table" >
+                    <div class="row display-tr" >
+                        <h3 class="panel-title display-td" >Payment Details</h3>
+                        <div class="display-td" >                            
+                            <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="tel"
+                                            class="form-control"
+                                            name="cardNumber"
+                                            placeholder="Valid Card Number"
+                                            autocomplete="cc-number"
+                                            required autofocus 
+                                        />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        name="cardExpiry"
+                                        placeholder="MM / YY"
+                                        autocomplete="cc-exp"
+                                        required 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cardCVC">CV CODE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control"
+                                        name="cardCVC"
+                                        placeholder="CVC"
+                                        autocomplete="cc-csc"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="couponCode">COUPON CODE</label>
+                                    <input type="text" class="form-control" name="couponCode" />
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button name="_eventId_submit" class="subscribe btn btn-success btn-lg btn-block" type="submit">Start Subscription</button>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+            <!-- CREDIT CARD FORM ENDS HERE -->
+            
+</form:form>            
+        </div>            
+        
+    </div>
+    <div class="col-sm-4"></div>
 </div>
-     </div>
-       <div class="row ">
-            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                 <input type="submit"  class="btn btn-danger" value="CANCEL" />
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                  <input type="submit" name="_eventId_submit" class="btn btn-warning btn-block" value="PAY NOW" />
-              </div>
-          </div>
-     
-                   </div>
-              </div>
-</form:form>
+
+
+             
+
+
+<%@include file="Footer.jsp"%>

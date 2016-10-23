@@ -83,7 +83,13 @@
     <version>5.2.3.Final</version>
 </dependency>
   
-    
+  <!-- hibernate validator  -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>5.3.0.Final</version>
+</dependency>
+     
   
   <!-- Spring ORM dependency and it's version must be same as your spring dependency -->
 <dependency>

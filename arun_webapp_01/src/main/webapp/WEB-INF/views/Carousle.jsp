@@ -4,7 +4,7 @@
 <div class="col-lg-12">
 
 
-				<div class="carousel slide" id="carousel-729274">
+				<div class="carousel slide" id="carousel-729274" data-interval="3000">
 					<ol class="carousel-indicators">
 						<li class="active" data-slide-to="0" data-ride="carousel" data-target="#carousel-729274">
 						</li>
@@ -13,20 +13,20 @@
 						<li data-slide-to="2" data-target="#carousel-729274">
 						</li>
 					</ol>
-					<div class="carousel-inner">
+					<div class="carousel-inner" >
 						<div class="item active">
-							<img style="height:500px;" alt="Carousel Bootstrap First" src="resources/images/c1.jpg" />
+							<img style="height:350px;" alt="Carousel Bootstrap First" src="resources/images/c1.jpg" />
 							<div class="carousel-caption">
 
 							</div>
 						</div>
 						<div class="item">
-							<img style="height:500px;"  alt="Carousel Bootstrap Second" src="resources/images/c2.jpg" />
+							<img style="height:350px;"  alt="Carousel Bootstrap Second" src="resources/images/c2.jpg" />
 							<div class="carousel-caption">
 							</div>
 						</div>
 						<div class="item">
-							<img style="height:500px;" alt="Carousel Bootstrap Third" src="resources/images/c3.jpg" />
+							<img style="height:350px;" alt="Carousel Bootstrap Third" src="resources/images/c3.jpg" />
 							<div class="carousel-caption">
 
 							</div>

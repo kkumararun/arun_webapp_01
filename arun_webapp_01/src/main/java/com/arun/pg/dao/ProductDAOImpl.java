@@ -6,6 +6,7 @@ import java.util.List;
 
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,9 +77,17 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public Product getProductByPrice(int productPrice) {
+	public List<Product> getProductByCategory(String category) {
 		// TODO Auto-generated method stub
-		return null;
+		Query query = session.getCurrentSession().createQuery("from Product WHERE category=?");
+		query.setParameter(0, category);
+		return query.list();
+	}	
+	
+	@Override
+	public Product getProductByPrice(int productPrice) {
+		Product p = session.getCurrentSession().get(Product.class, new Integer(productPrice));
+		return p;
 	}
 
 }

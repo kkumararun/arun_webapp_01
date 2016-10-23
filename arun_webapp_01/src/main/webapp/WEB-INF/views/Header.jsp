@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- spring taglib to hide login button after login and hide admin button -->
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -34,6 +35,7 @@
    
    <sec:authorize access="hasRole('ROLE_USER')" var="isAdmin">
    </sec:authorize>
+   
    <sec:authorize access="hasRole('ROLE_ADMIN')" var="isUser">
    <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
    </sec:authorize>

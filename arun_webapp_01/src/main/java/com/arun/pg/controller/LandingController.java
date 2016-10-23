@@ -9,7 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LandingController {
 
-	@RequestMapping("/")
+	/*
+	
+	Controller to open the landing page
+	*/
+	
+	@RequestMapping(value={"/","/welcome"})
 public ModelAndView helloWorld(){
 	
 	ModelAndView model=new ModelAndView("LandingPage");

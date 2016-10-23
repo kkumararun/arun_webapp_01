@@ -46,7 +46,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- Define the bean id's -->
 	<bean id="productDAO" class="com.arun.pg.dao.ProductDAOImpl" />
 	<bean id="userDAO" class="com.arun.pg.dao.UserDAOImpl" />
-
+<bean id="categoryDAO" class="com.arun.pg.dao.CategoryDAOImpl" />
 </beans>
 
 

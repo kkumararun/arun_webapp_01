@@ -7,26 +7,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.arun.pg.dao.ProductDAO;
 import com.arun.pg.model.Product;
 
 @Controller
 public class ViewAllController {
 
+	/*
+	 * for rest controller
+	 * 
+	 * 
+	 */
+
 	@Autowired
 	ProductDAO productDao;
-	
+
 	@RequestMapping("/products/all")
 	@ResponseBody
-	public List<Product> getAllProducts(){
-		
+	public List<Product> getAllProducts() {
+
 		return productDao.getAllProduct();
-		
+
 	}
-	
-	
-	
-	
-	
+
 }

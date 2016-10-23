@@ -1,93 +1,110 @@
 
 <%-- <%@include file="linking.jsp" %> --%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
-<%@include file="Header.jsp" %>
+<%@include file="Header.jsp"%>
 
 
+<div class="container">
 
-<div ng-app="ngAppProduct">
-	<div ng-controller="allProduct">
-
-
-		<div class="container">
-		
-
-
-<div ng-app="ngAppProduct">
-	<div ng-controller="allProduct">
-
-
-		<div class="container">
+	<div ng-app="ngAppProduct" ng-controller="allProduct"
+		ng-init="test='${brand}'">
+		<p>
 		
 		<div class="form-group">
-      <div class="input-group">
- <div class="input-group-addon">
- <i class="fa fa-search"></i></div>
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-search"></i>
+						</div>
 
-    		<input type="text" class="form-control" placeholder="Search Product" ng-init="searchBox ='${brand}'" ng-model="searchBox">
+	<input type="text" class="form-control"		placeholder="Search Product" ng-init="searchBox ='${brand}'" ng-model="test">
+					</div>
+				</div>
+		
+		
+		</p>
+		
+
+
+		<table class="table table-hover" >
+			<thead>
+				<tr>
+					<th></th>
+					<th>Name</th>
+					<th>brand</th>
+					<th>price</th>
+					<th >Category</th>
+				</tr>
+				<tr
+					ng-repeat="product in allProductData | orderBy:mydata | filter:test">
+					<td><img
+						src="<c:url value="${pimg}/{{product.productId}}.jpg"/>"
+						hight="50" width="50" class="img img-responsive" /></td>
+					<td>{{product.productName}}</td>
+					<td>{{product.productBrand}}</td>
+					<td>{{product.productPrice}}</td>
+					<td>{{product.category}}</td>
+					<td>{{product.productPrice}}</td>
+
+					<td><a
+						href="<c:url value="/singledata/{{product.productId}}"/>"
+						class="btn btn-success">View</a></td>
+					<td><a href="" class="btn btn-info">Add to Cart</a></td>
+					
+					
+
+				</tr>
+			</thead>
+		</table>
+	</div>
 </div>
-</div>
+<script src="resources/js/product.js"></script>
 
 
-<!-- Left to right-->
-<div class="row" ng-repeat="product in allProductData | orderBy:mydata | filter:searchBox">
-  <div class="col-sm-4"> 
-    <!-- normal -->
-    <div class="ih-item circle effect7 left_to_right">
-    
-        <div class="img"><img  src="<c:url value="${pimg}/{{product.productId}}.jpg"/>" hight="250" width="250"/></div>
-        <div class="info">
-          <h3>{{product.productName}} {{product.productBrand}}</h3>
-          <p>
-          <a href="<c:url value="/viewbyproduct/{{product.productId}}"/>" class="btn btn-success">View</a>
-          
-          <a href="" class="btn btn-info">Add to Cart</a>
-          </p>
-        </div></div>
-    <!-- end normal -->
- 
-  </div>
-  
-  <div class="col-sm-4"> 
-    <!-- normal -->
-    <div class="ih-item circle effect7 left_to_right">
-    
-        <div class="img"><img  src="<c:url value="${pimg}/{{product.productId}}.jpg"/>" hight="250" width="250"/></div>
-        <div class="info">
-          <h3>{{product.productName}} {{product.productBrand}}</h3>
-          <p>
-          <a href="<c:url value="/viewbyproduct/{{product.productId}}"/>" class="btn btn-success">View</a>
-          
-          <a href="" class="btn btn-info">Add to Cart</a>
-          </p>
-        </div></div>
-    <!-- end normal -->
- 
-  </div>
-  
-  <div class="col-sm-4"> 
-    <!-- normal -->
-    <div class="ih-item circle effect7 left_to_right">
-    
-        <div class="img"><img  src="<c:url value="${pimg}/{{product.productId}}.jpg"/>" hight="250" width="250"/></div>
-        <div class="info">
-          <h3>{{product.productName}} {{product.productBrand}}</h3>
-          <p>
-          <a href="<c:url value="/viewbyproduct/{{product.productId}}"/>" class="btn btn-success">View</a>
-          
-          <a href="" class="btn btn-info">Add to Cart</a>
-          </p>
-        </div></div>
-    <!-- end normal -->
- 
-  </div>
-  
-
-</div>
+<%-- <jsp:include page="foot.jsp"></jsp:include> --%>
 
 
+
+
+<%-- 
+<div class="container-fluid">
+<div ng-app="ngAppProduct" ng-controller="allProduct" >
+
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-search"></i>
+						</div>
+
+	<input type="text" class="form-control"		placeholder="Search Product" ng-init="searchBox ='${brand}'" ng-model="searchBox">
+					</div>
+				</div>
+				<tabel>
+
+				<tr	ng-repeat="product in allProductData | orderBy:mydata | filter:searchBox">
+					<td><img
+						src="<c:url value="${pimg}/{{product.productId}}.jpg"/>"
+						hight="100" width="100" class="img img-responsive" /></td>
+
+					<td>sffg{{product.productName}}</td>
+
+					<td>sfg{{product.productBrand}}</td>
+
+					<td><a
+						href="<c:url value="/viewbyproduct/{{product.productId}}"/>"
+						class="btn btn-success">View</a></td>
+
+					<td><a href="" class="btn btn-info">Add to Cart</a></td>
+				</tr>
+
+				</tabel>
+
+			</div>
+
+
+
+ --%>
 
 <sript src="resources/js/product.js"></sript>
 
-<%@include file="Footer.jsp" %>
+<%@include file="Footer.jsp"%>
