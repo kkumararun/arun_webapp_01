@@ -28,7 +28,7 @@
    
    <ul class="nav navbar-nav navbar-right">
    
-   <li><a href="memberShip">Cart</a></li>
+   <li><a href="memberShip"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
    <li><a href="<c:url value="/contact"/>">Reach Us</a></li>
    
    

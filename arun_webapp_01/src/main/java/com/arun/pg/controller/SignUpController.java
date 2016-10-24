@@ -63,8 +63,7 @@ public class SignUpController {
 		return "403";
 	}
 
-	
-	
+			
 	// signup form and sending the blank user object to spring form
 	@RequestMapping("/signup")
 	public ModelAndView gotoSignUp() {

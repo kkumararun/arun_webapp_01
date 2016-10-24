@@ -18,9 +18,7 @@ public class ProductDAOImpl implements ProductDAO{
 
 	@Autowired
 	private SessionFactory session;
-	
-
-	
+		
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 

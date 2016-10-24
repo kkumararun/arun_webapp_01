@@ -1,9 +1,6 @@
-
-<beans 
-	xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:webflow="http://www.springframework.org/schema/webflow-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -14,29 +11,29 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd
          http://www.springframework.org/schema/webflow-config
         http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
- 
- 
+
+
 
 	<bean id="HandlerMapping"
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
 	<!--it's say that scan all controller and use it -->
+<context:component-scan base-package="com.arun.pg" />
 	
-	<context:component-scan base-package="com.arun.pg"/>
 
 
-<!-- WebFlow Configuration -->
+	<!-- WebFlow Configuration -->
 	<webflow:flow-executor id="flowExecutor" />
- 
+
 	<webflow:flow-registry id="flowRegistry"
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<!-- here the id is mapped to invoke this flow -->
 		<webflow:flow-location id="memberShip" path="/memberShipFlow.xml" />
 	</webflow:flow-registry>
- 
+
 	<webflow:flow-builder-services id="flowBuilderServices"
 		view-factory-creator="viewFactoryCreator" />
- 
+
 	<bean id="viewFactoryCreator"
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers">
@@ -45,8 +42,8 @@
 			</list>
 		</property>
 	</bean>
-	
-	<!--  -->
+
+	<!-- -->
 
 
 
@@ -60,27 +57,27 @@
 		</property>
 	</bean>
 
-<!-- Multipart file size -->
-<bean id="multipartResolver"
+	<!-- Multipart file size -->
+	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
-		 <!-- setting maximum upload size -->
+		<!-- setting maximum upload size -->
 		<property name="maxUploadSize" value="800000" />
 
 	</bean>
 
-<mvc:resources mapping="/resources/**" location="/resources/" />	
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- this tag is help to execute annotations -->
 	<mvc:annotation-driven />
 
 
 
-<!-- Beans for flow Handler -->
-<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+	<!-- Beans for flow Handler -->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
- 
+
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
 		<property name="order" value="0" />

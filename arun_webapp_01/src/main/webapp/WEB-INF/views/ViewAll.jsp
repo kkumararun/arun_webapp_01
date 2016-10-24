@@ -7,55 +7,65 @@
 
 <div class="container">
 
-	<div ng-app="ngAppProduct" ng-controller="allProduct"
-		ng-init="test='${brand}'">
-		<p>
-		
-		<div class="form-group">
+
+
+
+	<div class="row">
+
+		<div class="col-lg-12">
+			<div ng-app="ngAppProduct" ng-controller="allProduct"
+				ng-init="test='${brand}'">
+				<p>
+				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">
 							<i class="fa fa-search"></i>
 						</div>
 
-	<input type="text" class="form-control"		placeholder="Search Product" ng-init="searchBox ='${brand}'" ng-model="test">
+						<input type="text" class="form-control"
+							placeholder="Search Product" ng-init="searchBox ='${brand}'"
+							ng-model="test">
 					</div>
 				</div>
-		
-		
-		</p>
-		
 
 
-		<table class="table table-hover" >
-			<thead>
-				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>brand</th>
-					<th>price</th>
-					<th >Category</th>
-				</tr>
-				<tr
-					ng-repeat="product in allProductData | orderBy:mydata | filter:test">
-					<td><img
-						src="<c:url value="${pimg}/{{product.productId}}.jpg"/>"
-						hight="50" width="50" class="img img-responsive" /></td>
-					<td>{{product.productName}}</td>
-					<td>{{product.productBrand}}</td>
-					<td>{{product.productPrice}}</td>
-					<td>{{product.category}}</td>
-					<td>{{product.productPrice}}</td>
+				</p>
 
-					<td><a
-						href="<c:url value="/singledata/{{product.productId}}"/>"
-						class="btn btn-success">View</a></td>
-					<td><a href="" class="btn btn-info">Add to Cart</a></td>
-					
-					
 
-				</tr>
-			</thead>
-		</table>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>brand</th>
+							<th>price</th>
+							<th>Category</th>
+						</tr>
+						<tr
+							ng-repeat="product in allProductData | orderBy:mydata | filter:test">
+							<td><img
+								src="<c:url value="${pimg}/{{product.productId}}.jpg"/>"
+								hight="50" width="50" class="img img-responsive" /></td>
+							<td>{{product.productName}}</td>
+							<td>{{product.productBrand}}</td>
+							<td>{{product.productPrice}}</td>
+							<td>{{product.category}}</td>
+							<td>{{product.productPrice}}</td>
+
+							<td><a
+								href="<c:url value="/singledata/{{product.productId}}"/>"
+								class="btn btn-success">View</a></td>
+							<td><a href="" class="btn btn-info">Add to Cart</a></td>
+
+
+
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+		</div>
 	</div>
 </div>
 <script src="resources/js/product.js"></script>

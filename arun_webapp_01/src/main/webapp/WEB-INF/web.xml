@@ -5,8 +5,6 @@
 
 
 
-
-
 	<!-- Spring Security Filter -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
