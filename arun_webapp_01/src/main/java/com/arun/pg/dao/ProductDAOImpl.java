@@ -41,7 +41,7 @@ public class ProductDAOImpl implements ProductDAO{
 //		}
 //		return productList;
 //		
-		return session.getCurrentSession().createQuery("from Product").list();
+		return session.getCurrentSession().createQuery("from product").list();
 
 	
 	}
