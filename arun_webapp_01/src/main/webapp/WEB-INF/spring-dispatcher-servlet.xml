@@ -41,6 +41,7 @@
 				<ref bean="viewResolver" />
 			</list>
 		</property>
+		
 	</bean>
 
 	<!-- -->
@@ -78,6 +79,7 @@
 		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 
+  <!-- Maps request paths to flows in the flowRegistry; -->    
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
 		<property name="order" value="0" />

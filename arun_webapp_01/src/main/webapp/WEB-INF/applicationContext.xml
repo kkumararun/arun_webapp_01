@@ -15,7 +15,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:tcp://localhost/~/myecom" />
+		<property name="url" value="jdb:h2:tcp://localhost/~/myecom" />
 		<property name="username" value="arun" />
 		<property name="password" value="arun" />
 	</bean>
@@ -42,7 +42,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	</bean>
 
 
-	<tx:annotation-driven />
 	<!-- Define the bean id's -->
 	<bean id="productDAO" class="com.arun.pg.dao.ProductDAOImpl" />
 	<bean id="userDAO" class="com.arun.pg.dao.UserDAOImpl" />
