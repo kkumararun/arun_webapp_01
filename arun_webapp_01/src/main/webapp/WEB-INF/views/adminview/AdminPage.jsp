@@ -13,8 +13,8 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
 			<article role="login">
-				<form:form method="POST" action="${cp}/admin/insert"
-					modelAttribute="product" enctype="multipart/form-data">
+
+				<form:form method="POST" action="${cp}/admin/insert" modelAttribute="product" enctype="multipart/form-data">
 
 
 					<c:if test="${!empty product}">

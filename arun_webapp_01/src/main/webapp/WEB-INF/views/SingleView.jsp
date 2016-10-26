@@ -1,7 +1,7 @@
-
+<!-- <sript src="resources/js/product.js"></sript> -->
 <%@include file="Header.jsp"%>
 
-<div class="container-fluid">
+<div class="container-fluid"  ng-app="ngAppProduct">
 
 <%-- <div ng-app="ngAppProduct" ng-controller="allProduct" >
 
@@ -69,7 +69,12 @@
 						
 						<tr>
 <td>			<a href="<c:url value="/all"/>"	class="btn btn-success">Back</a></td>
-<td><a href="" class="btn btn-info">Add to Cart</a></td>
+
+
+								<td ng-controller="cartCtrl">
+							<button href="" class="btn btn-info" type=button
+									ng-click="addToCart(product.productId)">Add to Cart</button></td>
+
 </tr>				
 					
 						

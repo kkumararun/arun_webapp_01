@@ -24,6 +24,16 @@
      
        
          <li><a href="<c:url value="/all"/>">View All Products</a></li> 
+    
+    
+     			  <sec:authorize access="hasRole('ROLE_USER')">
+ 			  	<li><a href="<c:url value="/customer/cart/" />">View Cart</a></li>
+ 			  </sec:authorize>
+ 			  <sec:authorize access="isAnonymous()">
+ 			  	<li><a href="<c:url value="/login" />">View Cart</a></li>
+ 			  </sec:authorize>
+    
+    
     </ul>
    
    <ul class="nav navbar-nav navbar-right">
@@ -72,12 +82,9 @@
    </c:otherwise>
 </c:choose>
                 
-    </ul>
-    
-    
-    
-   
+    </ul>  
     </div>
     
   </div>
+  
 </nav>

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arun.pg.dao.CategoryDAO;
 import com.arun.pg.dao.ProductDAO;
+import com.arun.pg.model.Category;
 import com.arun.pg.model.Product;
 
 @Controller
@@ -27,15 +28,16 @@ public class AdminController {
 	
 	@Autowired
 	ProductDAO productDao;
+
 	@Autowired
 	CategoryDAO categoryDao;
-	
+
 	@RequestMapping("/all")
 	public ModelAndView getAllProducts(){
 		ModelAndView modelAndView=new ModelAndView("adminview/AdminPage");
 		modelAndView.addObject("product",new Product());
+		modelAndView.addObject("categories", categoryDao.getAll());
 		modelAndView.addObject("productData",productDao.getAllProduct());
-		modelAndView.addObject("categories",categoryDao.getAll());
 		return modelAndView;
 		
 	}
@@ -66,6 +68,7 @@ public class AdminController {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
 			}
 
 			
@@ -90,7 +93,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/edit/{id}")
 	public String editProduct(@PathVariable("id") int id, Model model) {
-		model.addAttribute("categories",categoryDao.getAll());
+		
 		model.addAttribute("product", productDao.getProductById(id));
 		model.addAttribute("productData", productDao.getAllProduct());
 		return "adminview/AdminPage";

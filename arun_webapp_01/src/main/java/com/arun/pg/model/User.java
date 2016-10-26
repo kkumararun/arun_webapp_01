@@ -1,11 +1,12 @@
 package com.arun.pg.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Size;
+import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -37,6 +38,9 @@ public class User  {
 	private Boolean enabled;
 	@Column(name = "role")
 	private String role;
+	
+	
+	
 	
 	
 	public Boolean getEnabled() {
@@ -74,6 +78,38 @@ public class User  {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	/*--------CART-----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	/*---------Billing address----*/
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  BillingAddress billingAddress;
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+	
+	/*-------Shipping Address----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  ShippingAddress shippingAddress;
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
 	}
 	
 	

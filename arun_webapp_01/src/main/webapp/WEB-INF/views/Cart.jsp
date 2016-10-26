@@ -1,9 +1,23 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ include file="/WEB-INF/views/Header.jsp" %>
+<!-- My -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script src="<c:url value="/resources/js/product.js?v3"/>"></script>
+<c:set var="cp" value="${pageContext.request.contextPath}" />
+<div class="container-wrapper">
+    <div class="container">
+       
+        <section class="container" ng-app="ngAppProduct">
 
-<%@include file="Header.jsp"%>
-<form:form>
+            <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
 
-<div class="container">
-    <div class="row">
+               <!--  <div>
+                    <a class="btn btn-danger pull-left" ng-click = "clearCart()"><span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
+                    <a href="http://localhost:8787/arun_webapp_01/memberShip?execution=e1s1" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
+          
+                </div>
+ -->
+      <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <table class="table table-hover">
                 <thead>
@@ -17,85 +31,58 @@
                 </thead>
                 <tbody>
                 
-                    <tr>
+       <tr ng-repeat = "item in cart.cartItems">
+       
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${cp}/${pimg}/{{item.product.productId}}.jpg" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                                <h4 class="media-heading"><a href="#">{{item.product.productName}}</a></h4>
+                                <h5 class="media-heading"> by <a href="#">{{item.product.productBrand}}</a></h5>
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="text" class="form-control" id="exampleInputEmail1" value="3">
+                        <input type="text" class="form-control" id="exampleInputEmail1" value="{{item.quantity}}">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product.productPrice}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.totalPrice}}</strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
+                      <a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)"><span class="glyphicon glyphicon-remove"></span>remove</a>
+                            
+                      </td>
+                    </tr>                
+                
+                
+                
+                   	 <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Grand Total </th>
+                        <th></th>
+                        <th>{{calGrandTotal()}}</th>
+                        <th></th>
+
                     </tr>
-                    <tr>
-                        <td class="col-md-6">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 - 3 weeks</strong></span>
-                            </div>
-                        </div></td>
-                        <td class="col-md-1" style="text-align: center">
-                        <input type="text" class="form-control" id="exampleInputEmail1" value="2">
-                        </td>
-                        <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
-                    </tr>
-                    <tr>
+                         <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                        <a href="${cp}/all" class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                        </a></td>
                         <td>
-                        <button type="submit" name="_eventId_submit" class="btn btn-success">
+                        <a href="http://localhost:8888/arun_webapp_01/memberShip?execution=e1s2" class="btn btn-success">
                             Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        </a></td>
                     </tr>
            
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-         </form:form>
-         <%@include file="Footer.jsp"%>
+                    
+                </table>
+
+
+            </div>
+        </section>
+
+

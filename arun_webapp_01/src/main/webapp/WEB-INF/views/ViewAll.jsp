@@ -1,5 +1,6 @@
 
 <%-- <%@include file="linking.jsp" %> --%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <%@include file="Header.jsp"%>
@@ -13,8 +14,7 @@
 	<div class="row">
 
 		<div class="col-lg-12">
-			<div ng-app="ngAppProduct" ng-controller="allProduct"
-				ng-init="test='${brand}'">
+			<div ng-app="ngAppProduct" ng-controller="allProduct" ng-init="test='${brand}'">
 				<p>
 				<div class="form-group">
 					<div class="input-group">
@@ -56,8 +56,17 @@
 							<td><a
 								href="<c:url value="/singledata/{{product.productId}}"/>"
 								class="btn btn-success">View</a></td>
-							<td><a href="" class="btn btn-info">Add to Cart</a></td>
-
+								
+								<td ng-controller="cartCtrl">
+								
+								 			
+							<button href="" class="btn btn-info" type=button
+									ng-click="addToCart(product.productId)">Add to Cart</button>
+									
+									
+									
+									</td>
+							
 
 
 						</tr>
@@ -68,7 +77,7 @@
 		</div>
 	</div>
 </div>
-<script src="resources/js/product.js"></script>
+<script src="resources/js/product.js?v3"></script>
 
 
 <%-- <jsp:include page="foot.jsp"></jsp:include> --%>
