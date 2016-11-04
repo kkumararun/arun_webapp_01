@@ -74,6 +74,7 @@ public class AdminController {
 			
 			
 		} else {
+			
 			productDao.updateProduct(product);
 			
 		}
@@ -96,6 +97,7 @@ public class AdminController {
 		
 		model.addAttribute("product", productDao.getProductById(id));
 		model.addAttribute("productData", productDao.getAllProduct());
+		model.addAttribute("categories", categoryDao.getAll());
 		return "adminview/AdminPage";
 	}
 	
