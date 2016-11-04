@@ -42,12 +42,14 @@ public class CartResources {
     public @ResponseBody Cart getCartById(@PathVariable(value = "cartId") int cartId){
         return cartdao.getCartById(cartId);
     }
+    
+    Cart cart;
 
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem (@PathVariable(value = "productId") int productId, Principal principal){
         User customer = user.getCustomerByUsername(principal.getName());
-        Cart cart = customer.getCart();
+         cart = customer.getCart();
         Product product = productdao.getProductById(productId);
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -85,5 +87,15 @@ public class CartResources {
         Cart cart = cartdao.getCartById(cartId);
         cartitemdao.removeAllCartItems(cart);
     }
-
+    @RequestMapping("/StartFlow")
+	public String pageFlow() {
+		
+		
+		return "redirect:/memberShip";
+	}
+	
+	public Cart initFlow(){
+		//System.out.println(product);
+		return cart;
+	}
 } // The End of Class;

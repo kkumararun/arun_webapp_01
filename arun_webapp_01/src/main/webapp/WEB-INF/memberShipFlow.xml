@@ -4,26 +4,38 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-	<!-- Executed when webFlow is triggered -->
-	<!-- <on-start> demohandler is java class available through annotated Demohandler.java 
-		class.here we are calling it’s initFlow() method. <evaluate expression="demohandler.initFlow()" 
-		result="flowScope.userBean"/> </on-start> -->
 
+	<on-start>
+		<evaluate expression="cartResources.initFlow()" result="flowScope.cart" />
+		<evaluate expression="addressController.getAddress()" result="flowScope.billingAddress" />
+	</on-start>
 
 	<!-- if not specified the first view state is the starting state -->
-	<view-state id="memberShip" view="Cart1">
-		<transition on="submit" to="Address" />
+	<view-state id="cartPage" view="cart" model="flowScope.cart">
+		<transition on="submit" to="addressstate" />
 	</view-state>
 
 	<!-- <action-state id="validate"> <evaluate expression="demohandler.validateDetails(userBean,messageContext)"></evaluate> 
 		<transition on="success" to="confirmDetails" /> <transition on="failure" 
 		to="start" /> </action-state> -->
-	<view-state id="Address" view="Address">
+		
+		
+		
+		
+	<view-state id="addressstate" view="Address" model="flowScope.billingAddress">
 		<transition on="submit" to="PaymentPage" />
 	</view-state>
+	
+
+	
 	<view-state id="PaymentPage" view="PaymentPage">
-		<transition on="submit" to="ThankYou" />
+		<transition on="submit" to="insertAddress" />
 	</view-state>
+	<action-state id="insertAddress">
+		<evaluate expression="addressController.insertAddress(billingAddress,messageContext,cart)"></evaluate>
+		<transition on="success" to="ThankYou" />
+		
+	</action-state>
 	<view-state id="ThankYou" view="ThankYou">
 		<transition on="submit" to="tohome" />
 	</view-state>

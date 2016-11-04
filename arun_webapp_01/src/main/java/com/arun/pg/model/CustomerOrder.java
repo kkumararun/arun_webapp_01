@@ -1,5 +1,7 @@
 package com.arun.pg.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +11,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 
-public class CustomerOrder {
+public class CustomerOrder implements Serializable {
 	 @Id
 	    @GeneratedValue
 	    private int customerOrderId;
@@ -69,6 +71,5 @@ public class CustomerOrder {
 	}
 
 		
-
 }
 

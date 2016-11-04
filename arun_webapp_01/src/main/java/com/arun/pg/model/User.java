@@ -1,5 +1,7 @@
 package com.arun.pg.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-public class User  {
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

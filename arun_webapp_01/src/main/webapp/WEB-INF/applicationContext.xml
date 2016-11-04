@@ -46,13 +46,16 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<tx:annotation-driven />
 	<!-- Define the bean id's -->
-	<bean id="cartDao" class="com.arun.pg.dao.CartDaoImpl" />
-	<bean id="cartItemDao" class="com.arun.pg.dao.CartItemDaoImpl" />
-	<bean id="customerOrderDao" class="com.arun.pg.dao.CustomerOrderDaoImpl" />
-
+	
 	<bean id="productDAO" class="com.arun.pg.dao.ProductDAOImpl" />
 	<bean id="userDAO" class="com.arun.pg.dao.UserDAOImpl" />
 	<bean id="categoryDAO" class="com.arun.pg.dao.CategoryDAOImpl" />
+	
+	<bean id="cartItemDao" class="com.arun.pg.dao.CartItemDaoImpl" />
+	<bean id="cartDao" class="com.arun.pg.dao.CartDaoImpl" />
+	<bean id="customerOrderDao" class="com.arun.pg.dao.CustomerOrderDaoImpl" />
+
+	
 
 
 </beans>

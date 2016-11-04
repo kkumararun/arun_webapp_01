@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.arun.pg.dao.ProductDAO;
+import com.arun.pg.model.Product;
 
 @Controller
 public class UserController {
@@ -55,13 +56,17 @@ public class UserController {
 
 		return modelAndView;
 	}
+	Product product;
 
 	@RequestMapping("/singledata/{id}")
 	public ModelAndView singledata(@PathVariable("id")int id) {
-		ModelAndView modelAndView = new ModelAndView("SingleView");	
+		ModelAndView modelAndView = new ModelAndView("SingleView");
+		product=productDAO.getProductById(id);
 		modelAndView.addObject("product", productDAO.getProductById(id));
 		
 		return modelAndView;
 	}
+	
+	
 
 }

@@ -1,5 +1,6 @@
 package com.arun.pg.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Cart {
+public class Cart implements Serializable{
     @Id
     @GeneratedValue
     private int cartId;

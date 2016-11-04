@@ -33,7 +33,7 @@ mainApp.controller("cartCtrl", function($scope, $http) {
 	};
 
 	$scope.addToCart = function(productId) {
-		alert(productId);
+//		alert(productId);
 		$http.put('/arun_webapp_01/customer/rest/cart/add/' + productId).success(
 				function() {
 					alert('Product successfully added to the cart!');
